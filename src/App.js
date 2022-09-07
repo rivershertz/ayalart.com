@@ -1,6 +1,9 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import icon from "./removeIcon.png";
+import { Route, Routes, Link } from 'react-router-dom';
+import Home from "./Home";
+import Store from "./Store";
 
 function App() {
   const [num, setNum] = useState([0, 1, 2]);
@@ -28,6 +31,16 @@ function App() {
 
   return (
     <div className="bg-red-100 h-screen">
+      <nav>
+        <ul>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/store'>Store</Link></li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/store' element={<Store />} />
+      </Routes>
       <button className="w-16 border-2 border-black" onClick={increment}>
         +
       </button>
